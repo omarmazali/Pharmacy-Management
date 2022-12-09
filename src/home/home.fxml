@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.HomeController">
+   <children>
+      <AnchorPane prefHeight="574.0" prefWidth="251.0">
+         <children>
+            <FontAwesomeIcon glyphName="USER_MD" layoutX="78.0" layoutY="145.0" size="10em" />
+            <Label alignment="CENTER" layoutX="46.0" layoutY="162.0" prefHeight="40.0" prefWidth="158.0" text="Welcome,">
+               <font>
+                  <Font name="Berlin Sans FB" size="25.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="46.0" layoutY="182.0" prefHeight="40.0" prefWidth="158.0" text="Admin">
+               <font>
+                  <Font name="Berlin Sans FB" size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="dashbordButton" layoutX="45.0" layoutY="239.0" mnemonicParsing="false" onAction="#dashboard" prefHeight="26.0" prefWidth="158.0" text="Dashboard">
+               <graphic>
+                  <FontAwesomeIcon glyphName="LINE_CHART" size="2em" />
+               </graphic>
+            </Button>
+            <Button fx:id="addButton" layoutX="46.0" layoutY="279.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="158.0" text="Add medicines">
+               <graphic>
+                  <FontAwesomeIcon glyphName="PLUS" size="2em" />
+               </graphic>
+            </Button>
+            <Button fx:id="sellButton" layoutX="45.0" layoutY="326.0" mnemonicParsing="false" onAction="#sell" prefHeight="26.0" prefWidth="158.0" text="Sell medicines">
+               <graphic>
+                  <FontAwesomeIcon glyphName="MONEY" size="2em" />
+               </graphic>
+            </Button>
+            <Button fx:id="userButton" layoutX="45.0" layoutY="370.0" mnemonicParsing="false" onAction="#getUsers" prefHeight="26.0" prefWidth="158.0" text="Users Management">
+               <graphic>
+                  <FontAwesomeIcon glyphName="USERS" size="2em" />
+               </graphic>
+            </Button>
+            <Button fx:id="signoutButton" layoutX="14.0" layoutY="528.0" mnemonicParsing="false" onAction="#signout" text="Sign out">
+               <graphic>
+                  <FontAwesomeIcon fx:id="SIGN" glyphName="SIGN_OUT" size="2em" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="252.0" prefHeight="574.0" prefWidth="730.0">
+         <children>
+            <LineChart layoutX="17.0" layoutY="178.0" prefHeight="332.0" prefWidth="695.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </LineChart>
+            <AnchorPane layoutX="489.0" layoutY="27.0" prefHeight="130.0" prefWidth="226.0">
+               <children>
+                  <Label layoutX="81.0" layoutY="103.0" text="Total Sellers" />
+                  <FontAwesomeIcon glyphName="USERS" layoutX="14.0" layoutY="79.0" size="3em" />
+                  <Label layoutX="109.0" layoutY="14.0" text="3" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="248.0" layoutY="27.0" prefHeight="130.0" prefWidth="226.0">
+               <children>
+                  <Label layoutX="81.0" layoutY="103.0" text="Total Customers" />
+                  <FontAwesomeIcon glyphName="" layoutX="14.0" layoutY="79.0" size="3em" />
+                  <Label layoutX="100.0" layoutY="14.0" text="1000" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="14.0" layoutY="27.0" prefHeight="130.0" prefWidth="226.0" stylesheets="@style.css">
+               <children>
+                  <Label layoutX="81.0" layoutY="103.0" text="Total Income" />
+                  <FontAwesomeIcon glyphName="MONEY" layoutX="14.0" layoutY="79.0" size="3em" />
+                  <Label layoutX="95.0" layoutY="14.0" text="0.0 DH" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
