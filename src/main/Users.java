@@ -8,14 +8,16 @@ public class Users {
     private String username;
     private String password;
     private String role;
+    private String cin;
 
-    public Users(int uid, String firstname, String lastname, String username, String password, String role) {
+    public Users(int uid, String firstname, String lastname, String username, String password, String cin, String role) {
         this.uid = uid;
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password=password;
         this.role = role;
+        this.cin = cin;
     }
 
     public int getUid() {
@@ -64,5 +66,13 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
     }
 }

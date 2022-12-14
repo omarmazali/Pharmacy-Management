@@ -62,7 +62,7 @@ public class ConnectionDB {
                 list.add(new Users(Integer.parseInt(results.getString("uid"))
                         , results.getString("firstname"), results.getString("lastname")
                         , results.getString("username"), results.getString("password")
-                        , results.getString("role")));
+                        , results.getString("cin"), results.getString("role")));
             }
 
         }catch (Exception e){
@@ -71,6 +71,49 @@ public class ConnectionDB {
 
         return list;
 
+    }
+    public static ObservableList<Sellers> getDataSellers() {
+
+        Connection conn = getCnx();
+        ObservableList<Sellers> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM sellers");
+            ResultSet results = statement.executeQuery();
+
+            while (results.next()){
+                list.add(new Sellers(Integer.parseInt(results.getString("sid"))
+                        , results.getString("firstname"), results.getString("lastname")
+                        , results.getString("username"), results.getString("password")
+                        , results.getString("cin"), results.getString("role")));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+
+    }
+
+    public static ObservableList <Admins> getDataAdmins(){
+        Connection conn = getCnx();
+        ObservableList<Admins> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM admins");
+            ResultSet results = statement.executeQuery();
+
+            while (results.next()){
+                list.add(new Admins(Integer.parseInt(results.getString("aid"))
+                        , results.getString("firstname"), results.getString("lastname")
+                        , results.getString("username"), results.getString("password")
+                        , results.getString("cin"), results.getString("role")));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
     }
 
 }

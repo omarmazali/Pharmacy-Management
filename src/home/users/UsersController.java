@@ -16,7 +16,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import main.ConnectionDB;
 import main.Main;
-import main.Medicine;
 import main.Users;
 
 import javax.swing.*;
@@ -24,11 +23,14 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class UsersController implements Initializable {
 
     public TextField searchField;
+    public TableColumn<Users, String> colCIN;
+    public TextField cinField;
     @FXML
     private Button backButton;
 
@@ -83,6 +85,7 @@ public class UsersController implements Initializable {
         colFIRSTNAME.setCellValueFactory(new PropertyValueFactory<Users, String>("firstname"));
         colLASTNAME.setCellValueFactory(new PropertyValueFactory<Users, String>("lastname"));
         colUSERNAME.setCellValueFactory(new PropertyValueFactory<Users, String>("username"));
+        colCIN.setCellValueFactory(new PropertyValueFactory<Users, String>("cin"));
         colROLE.setCellValueFactory(new PropertyValueFactory<Users, String>("role"));
 
         tableField.setItems(ConnectionDB.getDataUsers());
@@ -93,6 +96,7 @@ public class UsersController implements Initializable {
         colFIRSTNAME.setCellValueFactory(new PropertyValueFactory<Users, String>("firstname"));
         colLASTNAME.setCellValueFactory(new PropertyValueFactory<Users, String>("lastname"));
         colUSERNAME.setCellValueFactory(new PropertyValueFactory<Users, String>("username"));
+        colCIN.setCellValueFactory(new PropertyValueFactory<Users, String>("cin"));
         colROLE.setCellValueFactory(new PropertyValueFactory<Users, String>("role"));
 
         dataList = ConnectionDB.getDataUsers();
@@ -130,24 +134,51 @@ public class UsersController implements Initializable {
         m.changeScene("/home/home.fxml");
     }
 
+
+    //PROBLEM HERE : Dont delete from the sql table
+
     @FXML
     void delete(ActionEvent event) {
-        String uid = uidField.getText();
+        String username = usernameField.getText();
+        String role = roleField.getSelectionModel().getSelectedItem().toString();
 
+        String queryUser = "DELETE FROM users WHERE username = '"+username+"'";
         try {
+            if(role == "Admin"){
 
-            PreparedStatement statement = cnx.prepareStatement("DELETE FROM users WHERE uid = ?");
-            statement.setString(1, uid);
-            statement.executeUpdate();
+                String queryAdmin = "DELETE FROM admins WHERE username = '"+username+"'";
+                Statement statement = cnx.createStatement();
+                statement.executeUpdate(queryAdmin);
+                statement.executeUpdate(queryUser);
 
-            JOptionPane.showMessageDialog(null, "User was deleted");
+                JOptionPane.showMessageDialog(null, "User was deleted");
 
-            uidField.setText("");
-            firstnameField.setText("");
-            lastnameField.setText("");
-            usernameField.setText("");
-            loadtableUsers();
-            search();
+                uidField.setText("");
+                firstnameField.setText("");
+                lastnameField.setText("");
+                usernameField.setText("");
+                cinField.setText("");
+                loadtableUsers();
+                search();
+
+            }else {
+
+                String querySeller = "DELETE FROM sellers WHERE username = '"+username+"'";
+                Statement statement = cnx.createStatement();
+                statement.executeUpdate(querySeller);
+                statement.executeUpdate(queryUser);
+
+                JOptionPane.showMessageDialog(null, "User was deleted");
+
+                uidField.setText("");
+                firstnameField.setText("");
+                lastnameField.setText("");
+                usernameField.setText("");
+                cinField.setText("");
+                loadtableUsers();
+                search();
+            }
+
 
         }catch (Exception e){
             e.printStackTrace();
@@ -164,6 +195,7 @@ public class UsersController implements Initializable {
         firstnameField.setText(colFIRSTNAME.getCellData(index).toString());
         lastnameField.setText(colLASTNAME.getCellData(index).toString());
         usernameField.setText(colUSERNAME.getCellData(index).toString());
+        cinField.setText(colCIN.getCellData(index).toString());
         roleField.setValue(colROLE.getCellData(index).toString());
     }
 
@@ -173,25 +205,55 @@ public class UsersController implements Initializable {
         String uid = uidField.getText();
         String firstname = firstnameField.getText();
         String lastname = lastnameField.getText();
+        String cin = cinField.getText();
         String role = roleField.getSelectionModel().getSelectedItem().toString();
         String username = usernameField.getText();
 
+        String queryUser = "UPDATE users set firstname = '"+ firstname +"'" +
+                ", lastname = '"+ lastname +"', username = '"+ username +"', cin = '"+ cin +"', role = '"+ role +
+                "' where uid = '"+uid+"'";
+
+        //PROBLEM HERE : Dont update the sql table
 
         try
         {
-            PreparedStatement statement = cnx.prepareStatement("UPDATE users set firstname = '"+firstname+"'" +
-                    ", lastname = '"+lastname+"', username = '"+username+"', role= '"+role+"' where uid = '"+uid+"'");
+            if (role == "Admin"){
 
-            statement.execute();
+                String queryAdmin = "UPDATE admins set firstname = '"+ firstname +"'" +
+                        ", lastname = '"+ lastname +"', username = '"+ username +"', cin = '"+ cin + "' where aid = '"+uid+"'";
 
-            JOptionPane.showMessageDialog(null, "Seller was updated");
+                Statement statement = cnx.createStatement();
+                statement.executeUpdate(queryAdmin);
+                statement.executeUpdate(queryUser);
 
-            uidField.setText("");
-            firstnameField.setText("");
-            lastnameField.setText("");
-            usernameField.setText("");
-            loadtableUsers();
-            search();
+                JOptionPane.showMessageDialog(null, "Seller was updated");
+
+                uidField.setText("");
+                firstnameField.setText("");
+                lastnameField.setText("");
+                usernameField.setText("");
+                cinField.setText("");
+                loadtableUsers();
+                search();
+
+            } else {
+                String querySeller = "UPDATE sellers set firstname = '"+ firstname +"'" +
+                        ", lastname = '"+ lastname +"', username = '"+ username +"', cin = '"+ cin + "' where sid = '"+uid+"'";
+
+                Statement statement = cnx.createStatement();
+                statement.executeUpdate(querySeller);
+                statement.executeUpdate(queryUser);
+
+                JOptionPane.showMessageDialog(null, "Seller was updated");
+
+                uidField.setText("");
+                firstnameField.setText("");
+                lastnameField.setText("");
+                usernameField.setText("");
+                cinField.setText("");
+                loadtableUsers();
+                search();
+            }
 
         } catch (SQLException e)
         {

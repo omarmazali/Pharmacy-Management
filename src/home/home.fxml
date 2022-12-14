@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -24,31 +25,31 @@
                   <Font name="Berlin Sans FB" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="dashbordButton" layoutX="45.0" layoutY="239.0" mnemonicParsing="false" onAction="#dashboard" prefHeight="26.0" prefWidth="158.0" text="Dashboard">
-               <graphic>
-                  <FontAwesomeIcon glyphName="LINE_CHART" size="2em" />
-               </graphic>
-            </Button>
-            <Button fx:id="addButton" layoutX="46.0" layoutY="279.0" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="158.0" text="Add medicines">
-               <graphic>
-                  <FontAwesomeIcon glyphName="PLUS" size="2em" />
-               </graphic>
-            </Button>
-            <Button fx:id="sellButton" layoutX="45.0" layoutY="326.0" mnemonicParsing="false" onAction="#sell" prefHeight="26.0" prefWidth="158.0" text="Sell medicines">
-               <graphic>
-                  <FontAwesomeIcon glyphName="MONEY" size="2em" />
-               </graphic>
-            </Button>
-            <Button fx:id="userButton" layoutX="45.0" layoutY="370.0" mnemonicParsing="false" onAction="#getUsers" prefHeight="26.0" prefWidth="158.0" text="Users Management">
-               <graphic>
-                  <FontAwesomeIcon glyphName="USERS" size="2em" />
-               </graphic>
-            </Button>
             <Button fx:id="signoutButton" layoutX="14.0" layoutY="528.0" mnemonicParsing="false" onAction="#signout" text="Sign out">
                <graphic>
                   <FontAwesomeIcon fx:id="SIGN" glyphName="SIGN_OUT" size="2em" />
                </graphic>
             </Button>
+            <JFXButton fx:id="userButton" layoutX="45.0" layoutY="376.0" onAction="#getUsers" prefHeight="32.0" prefWidth="158.0" text="Users Management">
+               <graphic>
+                  <FontAwesomeIcon glyphName="USERS" size="1.5em" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="sellButton" layoutX="46.0" layoutY="329.0" onAction="#sell" prefHeight="32.0" prefWidth="158.0" text="Sell Medicines">
+               <graphic>
+                  <FontAwesomeIcon glyphName="CHECK" size="1.5em" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="addButton" layoutX="46.0" layoutY="287.0" onAction="#add" prefHeight="32.0" prefWidth="158.0" text="Add Medicines">
+               <graphic>
+                  <FontAwesomeIcon glyphName="PLUS" size="1.5em" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="dashboardButton" layoutX="46.0" layoutY="245.0" onAction="#dashboard" prefHeight="32.0" prefWidth="158.0" text="Profile">
+               <graphic>
+                  <FontAwesomeIcon glyphName="HOME" size="1.5em" />
+               </graphic>
+            </JFXButton>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="252.0" prefHeight="574.0" prefWidth="730.0">
@@ -71,7 +72,7 @@
             <AnchorPane layoutX="248.0" layoutY="27.0" prefHeight="130.0" prefWidth="226.0">
                <children>
                   <Label layoutX="81.0" layoutY="103.0" text="Total Customers" />
-                  <FontAwesomeIcon glyphName="" layoutX="14.0" layoutY="79.0" size="3em" />
+                  <FontAwesomeIcon layoutX="14.0" layoutY="79.0" size="3em" />
                   <Label layoutX="100.0" layoutY="14.0" text="1000" />
                </children>
             </AnchorPane>

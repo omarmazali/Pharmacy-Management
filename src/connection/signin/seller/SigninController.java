@@ -1,12 +1,16 @@
-package signin;
+package connection.signin.seller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import main.Main;
 import main.ConnectionDB;
 import java.sql.Connection;
@@ -15,8 +19,9 @@ import java.sql.Statement;
 
 public class SigninController {
 
+    public Button adminButton;
     @FXML
-    private Button loginButton;
+    private Button signinButton;
 
     @FXML
     private Button cancelButton;
@@ -43,28 +48,28 @@ public class SigninController {
     }
 
     @FXML
-    public void login(ActionEvent event) {
+    public void signin(ActionEvent event) {
 
         if(!usernameField.getText().isBlank() && !pwdField.getText().isBlank()){
-            checkLogin();
+            checkSignin();
 
         } else {
             wrongLabel.setText("Please enter your personal details");
         }
     }
 
-    private void checkLogin(){
+    private void checkSignin(){
 
         try{
 
             Statement statement = cnx.createStatement();
-            ResultSet results = statement.executeQuery("SELECT count(1) FROM users WHERE username = '" +
+            ResultSet results = statement.executeQuery("SELECT count(1) FROM sellers WHERE username = '" +
                     usernameField.getText()+"' AND password ='"+pwdField.getText()+"'");
 
 
             while (results.next()){
                 if(results.getInt(1) == 1){
-                    m.changeScene("/home/home.fxml");
+                    m.changeScene("/connection/signin/seller/test.fxml");
                 } else{
                     wrongLabel.setText("Invalid login. Please try again");
                 }
@@ -78,11 +83,19 @@ public class SigninController {
 
 
     public void signup(ActionEvent actionEvent) {
-        m.changeScene("/signup/signup.fxml");
+        m.changeScene("/connection/signup/signup.fxml");
     }
 
-    public TextField getUsernameField(){
-        return usernameField;
+    public void adminconfirm(ActionEvent actionEvent) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/connection/signin/confirmadmin/confirmAdmin.fxml"));
+            Parent root  = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(new Scene(root));
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
-
 }

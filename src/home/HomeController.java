@@ -1,5 +1,6 @@
 package home;
 
+import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import main.Main;
 
 public class HomeController {
 
+    public JFXButton button;
     @FXML
     private FontAwesomeIcon SIGN;
 
@@ -58,7 +60,7 @@ public class HomeController {
 
     @FXML
     void signout(ActionEvent event) {
-        m.changeScene("/signin/signin.fxml");
+        m.changeScene("/connection/signin/seller/signin.fxml");
     }
 
 }

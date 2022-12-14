@@ -14,10 +14,11 @@
       <TableView fx:id="tableField" layoutX="339.0" layoutY="89.0" onMouseClicked="#getSelected" prefHeight="472.0" prefWidth="626.0">
          <columns>
             <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
-            <TableColumn fx:id="colFIRSTNAME" prefWidth="142.39996337890625" text="FIRST NAME" />
-            <TableColumn fx:id="colLASTNAME" prefWidth="153.60003662109375" text="LAST NAME" />
-            <TableColumn fx:id="colUSERNAME" prefWidth="132.800048828125" text="USERNAME" />
-            <TableColumn fx:id="colROLE" prefWidth="125.0" text="ROLE" />
+            <TableColumn fx:id="colFIRSTNAME" prefWidth="108.0" text="FIRST NAME" />
+            <TableColumn fx:id="colLASTNAME" prefWidth="114.39996337890625" text="LAST NAME" />
+            <TableColumn fx:id="colUSERNAME" prefWidth="119.20001220703125" text="USERNAME" />
+            <TableColumn fx:id="colCIN" prefWidth="110.39996337890625" text="CIN" />
+            <TableColumn fx:id="colROLE" prefWidth="99.199951171875" text="ROLE" />
          </columns>
       </TableView>
       <AnchorPane prefHeight="575.0" prefWidth="315.0">
@@ -30,12 +31,14 @@
             <TextField fx:id="firstnameField" layoutX="150.0" layoutY="140.0" />
             <TextField fx:id="lastnameField" layoutX="150.0" layoutY="187.0" />
             <TextField fx:id="usernameField" layoutX="150.0" layoutY="229.0" />
-            <Label layoutX="40.0" layoutY="280.0" text="Role :" />
+            <Label layoutX="40.0" layoutY="327.0" text="Role :" />
             <Button layoutX="96.0" layoutY="410.0" mnemonicParsing="false" onAction="#update" prefHeight="26.0" prefWidth="106.0" text="Update" />
             <Button layoutX="97.0" layoutY="454.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="106.0" text="Delete" />
             <Button fx:id="backButton" layoutX="97.0" layoutY="534.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="106.0" text="Back" />
-            <ComboBox fx:id="roleField" layoutX="149.0" layoutY="276.0" prefWidth="150.0" promptText="Choose" />
+            <ComboBox fx:id="roleField" layoutX="149.0" layoutY="323.0" prefWidth="150.0" promptText="Choose" />
             <FontAwesomeIcon glyphName="USERS" layoutX="14.0" layoutY="35.0" size="2em" />
+            <Label layoutX="40.0" layoutY="279.0" text="CIN :" />
+            <TextField fx:id="cinField" layoutX="150.0" layoutY="275.0" />
          </children>
       </AnchorPane>
       <TextField fx:id="searchField" layoutX="339.0" layoutY="44.0" prefWidth="626.0" promptText="Search" />
