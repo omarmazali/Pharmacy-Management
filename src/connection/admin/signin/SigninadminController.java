@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.ConnectionDB;
 import main.Main;
+import main.getData;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -62,8 +63,9 @@ public class SigninadminController {
 
 
             while (results.next()){
+                getData.adminname = usernameField.getText();
                 if(results.getInt(1) == 1){
-                    m.changeScene("/home/home.fxml");
+                    m.changeScene("/connection/admin/signin/home/home.fxml");
                 } else{
                     wrongLabel.setText("Invalid login. Please try again");
                 }

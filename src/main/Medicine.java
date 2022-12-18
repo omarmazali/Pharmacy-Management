@@ -16,6 +16,7 @@ public class Medicine {
         this.price = price;
         this.type = type;
     }
+    public Medicine(){}
 
     public int getMid() {
         return mid;

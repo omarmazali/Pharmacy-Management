@@ -72,19 +72,21 @@ public class ConnectionDB {
         return list;
 
     }
-    public static ObservableList<Sellers> getDataSellers() {
+    public static ObservableList<Customer> getDataCustomers() {
 
         Connection conn = getCnx();
-        ObservableList<Sellers> list = FXCollections.observableArrayList();
+        ObservableList<Customer> list = FXCollections.observableArrayList();
         try {
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM sellers");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM customer");
             ResultSet results = statement.executeQuery();
 
             while (results.next()){
-                list.add(new Sellers(Integer.parseInt(results.getString("sid"))
-                        , results.getString("firstname"), results.getString("lastname")
-                        , results.getString("username"), results.getString("password")
-                        , results.getString("cin"), results.getString("role")));
+                list.add(new Customer(Integer.parseInt(results.getString("cid"))
+                        , results.getString("name"), results.getString("type")
+                        , Float.parseFloat(results.getString("price"))
+                        , Long.parseLong(results.getString("quantity"))
+                        , Float.parseFloat(results.getString("total"))
+                        , results.getString("date")));
             }
 
         }catch (Exception e){
@@ -93,27 +95,6 @@ public class ConnectionDB {
 
         return list;
 
-    }
-
-    public static ObservableList <Admins> getDataAdmins(){
-        Connection conn = getCnx();
-        ObservableList<Admins> list = FXCollections.observableArrayList();
-        try {
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM admins");
-            ResultSet results = statement.executeQuery();
-
-            while (results.next()){
-                list.add(new Admins(Integer.parseInt(results.getString("aid"))
-                        , results.getString("firstname"), results.getString("lastname")
-                        , results.getString("username"), results.getString("password")
-                        , results.getString("cin"), results.getString("role")));
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return list;
     }
 
 }

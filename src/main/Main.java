@@ -16,7 +16,7 @@ public class Main extends Application{
     public void start(Stage stage){
         try {
             stg = stage;
-            Parent root = FXMLLoader.load(getClass().getResource("/connection/signin/seller/signin.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/connection/seller/signin/signin.fxml"));
             /*
             String javaVersion = System.getProperty("java.version");
             String javafxVersion = System.getProperty("javafx.version");

@@ -23,7 +23,7 @@
                   <Font name="Berlin Sans FB" size="20.0" />
                </font>
             </Label>
-            <FontAwesomeIcon glyphName="STETHOSCOPE" layoutX="127.0" layoutY="242.0" size="6em" textAlignment="CENTER" />
+            <FontAwesomeIcon glyphName="USER_PLUS" layoutX="127.0" layoutY="242.0" size="6em" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="337.0" prefHeight="575.0" prefWidth="645.0">
@@ -34,8 +34,8 @@
                </font>
             </Label>
             <TextField fx:id="usernameField" layoutX="214.0" layoutY="326.0" prefHeight="30.0" prefWidth="180.0" promptText="Username" />
-            <Button fx:id="signinButton" layoutX="251.0" layoutY="409.0" mnemonicParsing="false" onAction="#signin" prefHeight="26.0" prefWidth="106.0" text="Sign In" />
             <PasswordField fx:id="pwdField" layoutX="214.0" layoutY="368.0" prefHeight="30.0" prefWidth="180.0" promptText="Password" />
+            <Button fx:id="signinButton" layoutX="251.0" layoutY="409.0" mnemonicParsing="false" onAction="#signin" prefHeight="26.0" prefWidth="106.0" text="Sign In" />
             <Label fx:id="wrongLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="227.0" layoutY="302.0" textAlignment="CENTER" textFill="RED" />
             <FontAwesomeIcon glyphName="USER_MD" layoutX="243.0" layoutY="229.0" size="13em" />
             <Button fx:id="cancelButton" layoutX="571.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancel" prefHeight="5.0" prefWidth="58.0" text="X">

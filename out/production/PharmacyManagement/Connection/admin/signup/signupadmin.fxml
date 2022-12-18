@@ -12,57 +12,61 @@
    <children>
       <AnchorPane layoutX="625.0" prefHeight="575.0" prefWidth="354.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="262.0" text="Welcome sir/madam to our">
-               <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
-               </font>
-            </Label>
-            <Button fx:id="backButton" layoutX="121.0" layoutY="370.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="106.0" text="Back" />
-            <Label alignment="CENTER" layoutX="49.0" layoutY="285.0" text="pharmacy, enter your personal">
-               <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
-               </font>
-            </Label>
-            <FontAwesomeIcon glyphName="USER" layoutX="148.0" layoutY="239.0" size="6em" />
-            <Label alignment="CENTER" layoutX="150.0" layoutY="307.0" text="details">
-               <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
-               </font>
-            </Label>
+            <Button fx:id="backButton" layoutX="121.0" layoutY="370.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="106.0" text="Back">
+               <graphic>
+                  <FontAwesomeIcon glyphName="UNDO" />
+               </graphic></Button>
             <Button fx:id="closeButton" layoutX="275.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="5.0" prefWidth="58.0" text="X">
                <font>
                   <Font name="Berlin Sans FB Bold" size="12.0" />
                </font>
             </Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="255.0" text="Welcome sir/ madam to our">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="58.0" layoutY="278.0" text="pharmacy, please enter your">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <FontAwesomeIcon glyphName="USER" layoutX="148.0" layoutY="233.0" size="6em" />
+            <Label alignment="CENTER" layoutX="112.0" layoutY="301.0" text="personal details">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <FontAwesomeIcon glyphName="CARET_LEFT" layoutX="14.0" layoutY="302.0" size="3em" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="575.0" prefWidth="645.0">
          <children>
-            <TextField fx:id="lastnameField" layoutX="210.0" layoutY="244.0" prefHeight="30.0" prefWidth="180.0" promptText="Last Name" />
-            <TextField fx:id="usernameField" layoutX="210.0" layoutY="290.0" prefHeight="30.0" prefWidth="180.0" promptText="Username" />
-            <Label layoutX="81.0" layoutY="210.0" text="First name :" />
-            <Label layoutX="80.0" layoutY="250.0" text="Last Name :" />
-            <Label layoutX="81.0" layoutY="296.0" text="Username :" />
-            <Label layoutX="82.0" layoutY="396.0" text="Password :" />
-            <Label layoutX="82.0" layoutY="442.0" text="Confirm Password :" />
-            <Label fx:id="confirmpwdLabel" layoutX="410.0" layoutY="441.0" textFill="RED" />
-            <Button fx:id="registerButton" layoutX="248.0" layoutY="480.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="106.0" text="Register" />
+            <Label layoutX="158.0" layoutY="160.0" text="First name :" />
+            <Label layoutX="157.0" layoutY="200.0" text="Last Name :" />
+            <Label layoutX="158.0" layoutY="245.0" text="Username :" />
+            <Label layoutX="157.0" layoutY="337.0" text="Password :" />
+            <Label layoutX="159.0" layoutY="289.0" text="CIN :" />
+            <Label layoutX="157.0" layoutY="382.0" text="Confirm Password :" />
+            <TextField fx:id="firstnameField" layoutX="287.0" layoutY="153.0" prefHeight="30.0" prefWidth="180.0" promptText="First Name" />
+            <TextField fx:id="lastnameField" layoutX="287.0" layoutY="193.0" prefHeight="30.0" prefWidth="180.0" promptText="Last Name" />
+            <TextField fx:id="usernameField" layoutX="287.0" layoutY="239.0" prefHeight="30.0" prefWidth="180.0" promptText="Username" />
+            <TextField fx:id="cinField" layoutX="287.0" layoutY="284.0" prefHeight="30.0" prefWidth="180.0" promptText="CIN" />
+            <PasswordField fx:id="pwdField" layoutX="286.0" layoutY="331.0" prefHeight="30.0" prefWidth="180.0" promptText="Password" />
+            <PasswordField fx:id="confirmpwdField" layoutX="287.0" layoutY="376.0" prefHeight="30.0" prefWidth="180.0" promptText="Confirm Password" />
+            <Button fx:id="registerButton" layoutX="320.0" layoutY="448.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="106.0" text="Register" />
+            <Label fx:id="confirmpwdLabel" layoutX="485.0" layoutY="382.0" textFill="RED" />
             <Label layoutX="14.0" layoutY="58.0" text="Personal Informations">
                <font>
                   <Font name="Berlin Sans FB" size="40.0" />
                </font>
             </Label>
-            <PasswordField fx:id="pwdField" layoutX="211.0" layoutY="389.0" prefHeight="30.0" prefWidth="180.0" promptText="Password" />
-            <PasswordField fx:id="confirmpwdField" layoutX="212.0" layoutY="435.0" prefHeight="30.0" prefWidth="180.0" promptText="Confirm Password" />
-            <Label fx:id="pwdLabel" layoutX="408.0" layoutY="396.0" textFill="RED" />
-            <Label fx:id="usernameLabel" layoutX="406.0" layoutY="296.0" textFill="RED" />
-            <Label fx:id="lastnameLabel" layoutX="406.0" layoutY="250.0" textFill="RED" />
-            <Label fx:id="firstnameLabel" layoutX="408.0" layoutY="210.0" textFill="RED" />
-            <Label fx:id="peronalinformationsLabel" layoutX="195.0" layoutY="169.0" textFill="RED" />
-            <Label layoutX="82.0" layoutY="349.0" text="CIN :" />
-            <Label fx:id="cinLabel" layoutX="405.0" layoutY="348.0" textFill="RED" />
-            <TextField fx:id="firstnameField" layoutX="210.0" layoutY="204.0" prefHeight="30.0" prefWidth="180.0" promptText="First Name" />
-            <TextField fx:id="cinField" layoutX="210.0" layoutY="342.0" prefHeight="30.0" prefWidth="180.0" promptText="CIN" />
+            <Label fx:id="pwdLabel" layoutX="485.0" layoutY="337.0" textFill="RED" />
+            <Label fx:id="usernameLabel" layoutX="485.0" layoutY="245.0" textFill="RED" />
+            <Label fx:id="lastnameLabel" layoutX="485.0" layoutY="200.0" textFill="RED" />
+            <Label fx:id="firstnameLabel" layoutX="485.0" layoutY="159.0" textFill="RED" />
+            <Label fx:id="peronalinformationsLabel" layoutX="272.0" layoutY="119.0" textFill="RED" />
+            <Label fx:id="cinLabel" layoutX="485.0" layoutY="290.0" textFill="RED" />
          </children>
       </AnchorPane>
    </children>
