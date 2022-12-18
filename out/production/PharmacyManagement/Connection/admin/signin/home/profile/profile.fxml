@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="575.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="connection.admin.signin.home.profile.ProfileController">
    <children>
       <FontAwesomeIcon glyphName="USER" layoutX="46.0" layoutY="286.0" size="10em" />
@@ -80,12 +79,12 @@
             <FontAwesomeIcon glyphName="UNDO" />
          </graphic>
       </Button>
-      <Label layoutX="208.0" layoutY="405.0" text="If you have any questions (modification of information, application problems,">
+      <Label layoutX="208.0" layoutY="405.0">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="208.0" layoutY="427.0" text="advices...) contact directly the admin">
+      <Label layoutX="208.0" layoutY="427.0">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>

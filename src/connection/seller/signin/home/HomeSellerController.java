@@ -43,7 +43,7 @@ public class HomeSellerController implements Initializable {
 
     @FXML
     void profile(ActionEvent event) {
-
+        m.changeScene("/connection/seller/signin/home/profile/profileseller.fxml");
     }
 
     @FXML
